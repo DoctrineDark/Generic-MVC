@@ -1,0 +1,13 @@
+{
+  "name": "doctrinedark/mvc",
+  "description": "Simple example of implementing the MVC",
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "require": {
+    "ext-pdo": "*",
+    "ext-json": "*"
+  }
+}
