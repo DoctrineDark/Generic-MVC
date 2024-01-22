@@ -5,29 +5,13 @@ namespace App\Models;
 use App\Core\PDO\Connection;
 use App\Models\Traits\Queryable;
 
-abstract class Model implements \JsonSerializable
+abstract class Model
 {
     use Queryable;
 
-    protected $attributes;
     protected static $table;
     protected static $primaryKey;
     private static \PDO $connection;
-
-    public function jsonSerialize() : array
-    {
-        return $this->attributes;
-    }
-
-    public function __construct(?array $attributes=[])
-    {
-        $this->attributes = $attributes;
-    }
-
-    public function __get($name)
-    {
-        return isset($this->attributes[$name]) ? $this->attributes[$name] : null;
-    }
 
     public static function setConnection(Connection $connection)
     {
